@@ -1,17 +1,15 @@
 # Terraform-AWS-Project
 
-In This project, I write AWS Infrastructure using Terraform
-Create a VPC and deploy 2 applications in different availability zones. We will also create a load balancer to balance the load between the instances automatically.
+In This project, I write AWS Infrastructure using Terraform to Create a VPC and deploy 2 applications in different availability zones. We will also create a load balancer to balance the load between the instances automatically.
 
-**Here is the Infrastructure**
+
 ![Alt text](Assets/TerraformInfrastructureDiagram.png)
 
 
-Summary for [Day-24 | TERRAFORM WITH AWS PROJECT | ‪@cloudchamp‬ | AWS REAL TIME PROJECT #aws]
+TERRAFORM WITH AWS PROJECT
+Automating Infrastructure and Creating Resources on AWS.
 
-Terraform AWS Project with Cloud Champ: Automating Infrastructure and Creating Resources on AWS.
-
-[10:56]([10:56](https://www.youtube.com/watch?v=Koabqyopqns&t=656)) Learn how to use Terraform to automate infrastructure or create resources on AWS.
+Learn how to use Terraform to automate infrastructure or create resources on AWS.
 - Terraform is simple to use if you have a strong foundation in AWS fundamentals.
 - Project with CloudChamp focuses on setting up infrastructure using Terraform, including internet gateway, load balancer, public subnet, EC2 instances, and S3 bucket.
 
