@@ -4,7 +4,7 @@ In This project, I write AWS Infrastructure using Terraform
 Create a VPC and deploy 2 applications in different availability zones. We will also create a load balancer to balance the load between the instances automatically.
 
 **Here is the Infrastructure**
-![Alt text](Assets/Terraform Infrastructure Diagram.png)
+![Alt text](Assets/TerraformInfrastructureDiagram.png)
 
 
 Summary for [Day-24 | TERRAFORM WITH AWS PROJECT | ‪@cloudchamp‬ | AWS REAL TIME PROJECT #aws]
