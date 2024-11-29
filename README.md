@@ -15,7 +15,7 @@ WE USED TERRAFORM TO:
 
   "With Terraform, infrastructure as code allows us to provision resources consistently and efficiently."
 
-#### Step 1: Setting Up a Virtual Machine (VM) to Run Terraform
+### ***Step 1: Setting Up a Virtual Machine (VM) to Run Terraform***
 First we need a reliable environment to execute Terraform commands. I accomplished this by provisioning an EC2 instance with the following configuration:
 - Instance Type: t2.medium (2 vCPUs, 4 GiB memory)
 - Storage: 15 GiB of gp3 SSD
