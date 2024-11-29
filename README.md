@@ -50,7 +50,7 @@ aws configure
 ```
 ![Screenshot 2024-11-29 143311](https://github.com/user-attachments/assets/61a3887d-2928-4b93-9fee-0a8c4f64416c)
 
-### ***Step 2: Write Provider.tf file to define the provider***
+### ***Step 2: Write "Provider.tf" configuration to define the provider***
 In This provider.tf file is essential for connecting Terraform to AWS and managing infrastructure in the specified region.
 - terraform Block
 ``` shell
@@ -76,7 +76,7 @@ Configures the AWS provider to deploy resources in the us-east-1 region.
 - provider.tf is typically the first file Terraform reads to know which provider to use and where to deploy resources.
 - Once this configuration is in place, other Terraform files (main.tf, variables.tf, etc.) can define the actual AWS infrastructure (like VPCs, subnets, EC2 instances, etc.).
 
-### ***Step 3: Write main.tf configuration to creates an AWS infrastructure with Terraform***
+### ***Step 3: Write "main.tf" configuration to creates an AWS infrastructure with Terraform***
 main.tf configuration to creates an AWS infrastructure with Terraform, including a VPC, subnets, EC2 instances, an internet gateway, a security group, a load balancer, and other resources necessary for a web application deployment.
 #### 1. Create a Virtual Private Cloud (VPC)
 ``` shell
@@ -273,7 +273,7 @@ output "loadbalancerdns" {
 ```
 - Output: Displays the DNS name of the load balancer after deployment, allowing you to access the application.
 
-### ***Step 4: Write variables.tf configuration to defining the VPC CIDR Block***
+### ***Step 4: Write "variables.tf" configuration to defining the VPC CIDR Block***
 This step highlights that the CIDR block for the VPC is being defined as a variable (cidr), allowing flexibility and reusability across different environments or configurations. By setting the default value to 10.0.0.0/16, you're specifying the range of IP addresses available for the VPC.
 ``` shell
 variable "cidr" {
