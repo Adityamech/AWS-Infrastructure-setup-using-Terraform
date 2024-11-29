@@ -268,6 +268,6 @@ variable "cidr" {
 ```
 - variable "cidr": Declares a variable named cidr.
 - default = "10.0.0.0/16":
--- Specifies a default value for the variable if no other value is provided.
--- In this case, the default CIDR block for the VPC is 10.0.0.0/16. 
--- The /16 subnet mask allows for 65,536 IP addresses (from 10.0.0.0 to 10.0.255.255). 
+ -- Specifies a default value for the variable if no other value is provided.
+ -- In this case, the default CIDR block for the VPC is 10.0.0.0/16. 
+ -- The /16 subnet mask allows for 65,536 IP addresses (from 10.0.0.0 to 10.0.255.255). 
