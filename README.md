@@ -1,6 +1,6 @@
 # Terraform-AWS-Project
 
-In This project, I write AWS Infrastructure using Terraform to Create a VPC and deploy 2 applications in different availability zones. We will also create a load balancer to balance the load between the instances automatically.
+In This Terraform AWS project! I automated AWS infrastructure using Terraform to deploy two applications in different availability zones, set up a VPC, and configure a load balancer to handle traffic seamlessly.
 
 
 ![Alt text](Assets/TerraformInfrastructureDiagram.png)
@@ -8,6 +8,12 @@ In This project, I write AWS Infrastructure using Terraform to Create a VPC and 
 
 TERRAFORM WITH AWS PROJECT
 Automating Infrastructure and Creating Resources on AWS.
+
+We used Terraform to:
+
+- **Create a Virtual Private Cloud (VPC) with subnets in different availability zones.**
+- **Deploy two EC2 instances, each in a separate subnet.**
+- **Set up a load balancer to distribute traffic between these instances automatically.**
 
 Learn how to use Terraform to automate infrastructure or create resources on AWS.
 - Terraform is simple to use if you have a strong foundation in AWS fundamentals.
