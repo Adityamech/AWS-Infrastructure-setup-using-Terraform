@@ -483,7 +483,7 @@ Throughout the project, I followed Terraform best practices:
 ![Screenshot 2024-11-29 203429](https://github.com/user-attachments/assets/54e61024-f2ee-4f65-880f-931a53b05a22)
 
 ### Outputs:
-Web Applications :
+Web view:
 ![Screenshot 2024-11-29 212322](https://github.com/user-attachments/assets/04f663eb-cfb3-4e22-91d0-3de769fe113b)
 ![Screenshot 2024-11-29 212345](https://github.com/user-attachments/assets/ac6fac69-b02b-4c4c-bef4-87fd6a47e22b)
 
