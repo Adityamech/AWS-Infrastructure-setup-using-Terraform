@@ -393,7 +393,35 @@ The web page can be accessed through ALB DNS name on web browser (http://<public
 
 ### ***Step 6: Run Terraform Commands***
 Throughout the project, I followed Terraform best practices:
-- Used the ***terraform validate*** command to check for syntax errors.
+-  ***terraform init*** to initializes the working directory and downloads the necessary provider plugins.
+![Screenshot 2024-11-29 203002](https://github.com/user-attachments/assets/336c5ab1-d695-422b-9241-466748d33802)
+
+-  Used the ***terraform validate*** command to check for syntax errors.
+![Screenshot 2024-11-29 203039](https://github.com/user-attachments/assets/e0458cb8-44f0-4744-bdc5-b268f0169d40)
+
 - Ran ***terraform fmt*** to format the code for readability.
 - And executed ***terraform plan*** to preview the resources before applying changes.
+![Screenshot 2024-11-29 203149](https://github.com/user-attachments/assets/2ff19cb7-4d53-44ec-958f-1940aeb0c24e)
+![Screenshot 2024-11-29 203216](https://github.com/user-attachments/assets/bbce336c-66d8-4256-9638-444ff8665759)
+
 - Finally, ***terraform apply*** to actually execute resources:
+![Screenshot 2024-11-29 203315](https://github.com/user-attachments/assets/ec0cbc78-0110-4f42-bd24-49716a34abaa)
+![Screenshot 2024-11-29 203429](https://github.com/user-attachments/assets/54e61024-f2ee-4f65-880f-931a53b05a22)
+
+### Outputs:
+Web Applications :
+
+
+On AWS :
+![Screenshot 2024-11-25 220644](https://github.com/user-attachments/assets/7e0ddf5d-bba0-401c-89ff-585b9a1af6fb)
+![Screenshot 2024-11-25 220634](https://github.com/user-attachments/assets/d1e476f7-719e-4872-9514-82d3028e1798)
+![Screenshot 2024-11-25 220622](https://github.com/user-attachments/assets/f1c6221a-ec58-4e6a-96ba-04c9bddb3558)
+![Screenshot 2024-11-26 005636](https://github.com/user-attachments/assets/11c09c50-542f-4a60-aed8-87aabdcc4f50)
+![Screenshot 2024-11-29 204837](https://github.com/user-attachments/assets/276597ca-ae1a-4c79-99ac-ce8ed94985cf)
+![Screenshot 2024-11-26 005746](https://github.com/user-attachments/assets/d64fad6e-4551-4c6b-9fd3-3067dbf73585)
+![Screenshot 2024-11-26 005516](https://github.com/user-attachments/assets/b9fa182c-bf9e-4fde-84e8-2cde8aba74ef)
+![Screenshot 2024-11-26 005220](https://github.com/user-attachments/assets/51a03ecd-14d5-422c-b251-a8eb638684f7)
+![Screenshot 2024-11-26 000214](https://github.com/user-attachments/assets/9cfdb072-7f64-451a-a37d-6d2f27a61088)
+
+
+
