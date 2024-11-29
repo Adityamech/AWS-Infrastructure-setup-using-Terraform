@@ -177,7 +177,16 @@ resource "aws_security_group" "webSg" {
 -- Allow SSH access on port 22 from anywhere.
 - Egress Rules: Allow all outbound traffic.
 
-#### 6. Launch Two EC2 Instances in Different Subnets
+#### 6. Automating S3 Bucket Creation with Terraform
+``` shell
+resource "aws_s3_bucket" "example" {
+  bucket = "my-terraform-project"
+}
+```
+- resource "aws_s3_bucket" "example": This declares a new AWS S3 bucket resource named example.
+- bucket = "my-first-terraform-project": Specifies the name of the S3 bucket.
+  
+#### 7. Launch Two EC2 Instances in Different Subnets
 ``` shell
 resource "aws_instance" "webserver1" {
   ami                    = "ami-0866a3c8686eaeeba"
@@ -200,7 +209,7 @@ resource "aws_instance" "webserver1" {
 - Instance Type: t2.micro (free-tier eligible).
 - User Data: Custom startup script for each instance.
 
-#### 7. Create an Application Load Balancer (ALB)
+#### 8. Create an Application Load Balancer (ALB)
 ``` shell
 resource "aws_lb" "myalb" {
   name               = "myalb"
@@ -212,13 +221,18 @@ resource "aws_lb" "myalb" {
 ```
 - Resource: aws_lb creates an ALB to balance traffic between the two instances.
 
-#### 8. Create a Target Group and Attach Instances
+#### 9. Create a Target Group and Attach Instances
 ``` shell
 resource "aws_lb_target_group" "tg" {
   name     = "myTG"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.myvpc.id
+
+  health_check {
+    path = "/"
+    port = "traffic-port"
+  }
 }
 ```
 ``` shell
@@ -236,7 +250,7 @@ resource "aws_lb_target_group_attachment" "attach2" {
 ```
 - Target Group: Manages the EC2 instances behind the load balancer.
 - Attachments: Connects each instance to the target group.
-#### 9. Create a Listener for the Load Balancer
+#### 10. Create a Listener for the Load Balancer
 ``` shell
 resource "aws_lb_listener" "listener" {
   load_balancer_arn = aws_lb.myalb.arn
@@ -251,7 +265,7 @@ resource "aws_lb_listener" "listener" {
 ```
 - Listener: Listens for incoming HTTP traffic on port 80 and forwards it to the target group.
 
-#### 10. Output the Load Balancer DNS
+#### 11. Output the Load Balancer DNS
 ``` shell
 output "loadbalancerdns" {
   value = aws_lb.myalb.dns_name
@@ -268,6 +282,118 @@ variable "cidr" {
 ```
 - variable "cidr": Declares a variable named cidr.
 - default = "10.0.0.0/16":
- -- Specifies a default value for the variable if no other value is provided. 
- -- In this case, the default CIDR block for the VPC is 10.0.0.0/16.  
- -- The /16 subnet mask allows for 65,536 IP addresses (from 10.0.0.0 to 10.0.255.255).  
+-- Specifies a default value for the variable if no other value is provided. 
+-- In this case, the default CIDR block for the VPC is 10.0.0.0/16.  
+-- The /16 subnet mask allows for 65,536 IP addresses (from 10.0.0.0 to 10.0.255.255).  
+
+### ***Step 5: Use Shell Script file to Configure and Deploy Application on EC2***
+EC2 Instance 1: userdata.sh
+``` shell
+#!/bin/bash
+apt update
+apt install -y apache2
+
+# Get the instance ID using the instance metadata
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+
+# Install the AWS CLI
+apt install -y awscli
+
+# Download the images from S3 bucket
+#aws s3 cp s3://myterraformprojectbucket2023/project.webp /var/www/html/project.png --acl public-read
+
+# Create a simple HTML file with the portfolio content and display the images
+cat <<EOF > /var/www/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio</title>
+  <style>
+    /* Add animation and styling for the text */
+    @keyframes colorChange {
+      0% { color: red; }
+      50% { color: green; }
+      100% { color: blue; }
+    }
+    h1 {
+      animation: colorChange 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1>Terraform Project Server 1</h1>
+  <h2>Instance ID: <span style="color:green">$INSTANCE_ID</span></h2>
+  <p>Welcome to Aditya's Terraform Project 1</p>
+  
+</body>
+</html>
+EOF
+
+# Start Apache and enable it on boot
+systemctl start apache2
+systemctl enable apache2
+```
+
+EC2 Instance 2: userdata1.sh
+``` shell
+#!/bin/bash
+apt update
+apt install -y apache2
+
+# Get the instance ID using the instance metadata
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+
+# Install the AWS CLI
+apt install -y awscli
+
+# Download the images from S3 bucket
+#aws s3 cp s3://myterraformprojectbucket2023/project.webp /var/www/html/project.png --acl public-read
+
+# Create a simple HTML file with the portfolio content and display the images
+cat <<EOF > /var/www/html/index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio</title>
+  <style>
+    /* Add animation and styling for the text */
+    @keyframes colorChange {
+      0% { color: red; }
+      50% { color: green; }
+      100% { color: blue; }
+    }
+    h1 {
+      animation: colorChange 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1>Terraform Project Server 2</h1>
+  <h2>Instance ID: <span style="color:green">$INSTANCE_ID</span></h2>
+  <p>Welcome to Aditya's Terraform Project 2</p>
+  
+</body>
+</html>
+EOF
+
+# Start Apache and enable it on boot
+systemctl start apache2
+systemctl enable apache2
+```
+
+Overview: 
+- Launch EC2 Instance.
+- User Data Script Runs:
+Installs Apache and AWS CLI.
+Fetches the EC2 Instance ID.
+Creates a custom HTML file displaying the instance details.
+Starts the Apache server.
+- Access the Web Page:
+The web page can be accessed through ALB DNS name on web browser (http://<public-ip>).
+
+### ***Step 6: Run Terraform Commands***
+Throughout the project, I followed Terraform best practices:
+- Used the ***terraform validate*** command to check for syntax errors.
+- Ran ***terraform fmt*** to format the code for readability.
+- And executed ***terraform plan*** to preview the resources before applying changes.
+- Finally, ***terraform apply*** to actually execute resources:
