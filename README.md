@@ -10,7 +10,7 @@ WE USED TERRAFORM TO:
 
 - **Create a Virtual Private Cloud (VPC) with subnets in different availability zones.**
 - **Deploy two EC2 instances, each in a separate subnet.**
-- **Set Up a Remote Backend with an S3 Bucket for Seamless State Management**
+- **Automating S3 Bucket Creation with Terraform**
 - **Set up a load balancer to distribute traffic between these instances automatically.**
 
   "With Terraform, infrastructure as code allows us to provision resources consistently and efficiently."
