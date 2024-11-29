@@ -173,8 +173,8 @@ resource "aws_security_group" "webSg" {
 }
 ```
 - Ingress Rules:
--- Allow HTTP traffic on port 80 from anywhere (0.0.0.0/0).
--- Allow SSH access on port 22 from anywhere.
+  Allow HTTP traffic on port 80 from anywhere (0.0.0.0/0).
+  Allow SSH access on port 22 from anywhere.
 - Egress Rules: Allow all outbound traffic.
 
 #### 6. Automating S3 Bucket Creation with Terraform
