@@ -66,10 +66,10 @@ cat <<EOF > /var/www/html/index.html
 </head>
 <body>
   <header>
-    <h1>Terraform Project Server 2</h1>
-    <h2>Instance ID: <span class="instance-id">$INSTANCE_ID</span></h2>
+    <h1>Terraform Project Server 1</h1>
+    <h2>Instance ID: <span class="instance-id">${INSTANCE_ID}</span></h2>
   </header>
-  <p>Welcome to Aditya's Terraform Project 2</p>
+  <p>Welcome to Aditya's Terraform Project 1</p>
 </body>
 </html>
 EOF
