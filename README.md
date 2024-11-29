@@ -357,8 +357,8 @@ cat <<EOF > /var/www/html/index.html
 </head>
 <body>
   <header>
-    <h1>Terraform Project Server 2</h1>
-    <h2>Instance ID: <span class="instance-id">$INSTANCE_ID</span></h2>
+    <h1>Terraform Project Server 1</h1>
+    <h2>Instance ID: <span class="instance-id">${INSTANCE_ID}</span></h2>
   </header>
   <p>Welcome to Aditya's Terraform Project 1</p>
 </body>
@@ -368,6 +368,7 @@ EOF
 # Start Apache2 and enable it to run on boot
 systemctl start apache2
 systemctl enable apache2
+
 ```
 
 EC2 Instance 2: userdata1.sh
@@ -441,7 +442,7 @@ cat <<EOF > /var/www/html/index.html
 <body>
   <header>
     <h1>Terraform Project Server 2</h1>
-    <h2>Instance ID: <span class="instance-id">$INSTANCE_ID</span></h2>
+    <h2>Instance ID: <span class="instance-id">${INSTANCE_ID}</span></h2>
   </header>
   <p>Welcome to Aditya's Terraform Project 2</p>
 </body>
@@ -451,6 +452,7 @@ EOF
 # Start Apache2 and enable it to run on boot
 systemctl start apache2
 systemctl enable apache2
+
 ```
 
 Overview: 
@@ -482,6 +484,8 @@ Throughout the project, I followed Terraform best practices:
 
 ### Outputs:
 Web Applications :
+![Screenshot 2024-11-29 212322](https://github.com/user-attachments/assets/04f663eb-cfb3-4e22-91d0-3de769fe113b)
+![Screenshot 2024-11-29 212345](https://github.com/user-attachments/assets/ac6fac69-b02b-4c4c-bef4-87fd6a47e22b)
 
 
 On AWS :
@@ -496,5 +500,10 @@ On AWS :
 ![Screenshot 2024-11-29 204949](https://github.com/user-attachments/assets/22eadc4f-c678-48c4-9575-2f6897305e2b)
 ![Screenshot 2024-11-26 000214](https://github.com/user-attachments/assets/9cfdb072-7f64-451a-a37d-6d2f27a61088)
 
-
+### Destroy the Infrastructure using command:
+``` shell
+terraform destroy
+```
+![Screenshot 2024-11-29 211853](https://github.com/user-attachments/assets/0608d917-dbad-4da5-aea1-ef0238370c4f)
+![Screenshot 2024-11-29 211903](https://github.com/user-attachments/assets/3f05fe74-0386-4d1a-83aa-f6648d343e7b)
 
