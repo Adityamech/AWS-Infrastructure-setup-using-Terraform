@@ -1,6 +1,6 @@
 # Terraform-AWS-Project
 
-In This Terraform AWS project! I automated AWS infrastructure using Terraform to deploy two applications in different availability zones, set up a VPC, and configure a load balancer to handle traffic seamlessly.
+In this project, I automated AWS infrastructure using Terraform to deploy two applications in different availability zones, set up a VPC, and configure a load balancer to handle traffic seamlessly.
 
 
 ![Alt text](Assets/TerraformInfrastructureDiagram.png)
